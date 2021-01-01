@@ -1,0 +1,15 @@
+language: python
+python:
+  - 3.6
+services:
+  - web
+  - elasticsearch
+  - rabbit
+  - worker
+  - postgres_db
+
+install:
+  - pip install -r requirements.txt
+  - pip install docker-compose
+script:
+  - docker-compose run web python manage.py test
